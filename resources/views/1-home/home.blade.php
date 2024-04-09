@@ -9,7 +9,7 @@
 <div class="col-md-10 offset-md-1 dashboard-events-container">
     <table class="table table-bordered" id="home-table">
         <thead>
-            <tr>
+            <tr class="cabeçalho">
                 <th scope="col">ID</th>
                 <th scope="col" class="td-status text-center">Status</th>
                 <th scope="col" class="td-action"></th>

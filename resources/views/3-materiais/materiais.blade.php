@@ -8,7 +8,7 @@
 <div class="col-md-10 offset-md-1 dashboard-events-container">
     <table class="table table-bordered">
         <thead>
-            <tr>
+            <tr class="cabeçalho">
                 <th scope="col" style="vertical-align: middle;">Nome</th>
                 <th scope="col" class="td-tabela text-center" style="vertical-align: middle;">Peso</th>
                 <th scope="col" class="td-tabela text-center" style="vertical-align: middle;">Preço Unitário</th>

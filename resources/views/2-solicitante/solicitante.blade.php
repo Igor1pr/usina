@@ -8,7 +8,7 @@
 <div class="col-md-10 offset-md-1 dashboard-events-container">
     <table class="table table-bordered" id="solicitante-table">
         <thead>
-            <tr>
+            <tr class="cabeçalho">
                 <th scope="col">Tipo</th>
                 <th scope="col" class="td-tabela text-center">Setor</th>
             </tr>

@@ -108,6 +108,14 @@ header {
     margin-bottom: 4rem;
 }
 
+.cabeçalho {
+    background-color: #4079bc;
+}
+
+th {
+    color: whitesmoke;
+}
+
 #create-button,
 #create-solicitante-button,
 #create-motorista-button,

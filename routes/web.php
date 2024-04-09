@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AutomobileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,13 +35,13 @@ Route::get('/criar-motorista', function () {
     return view('4-motorista.create-motorista');
 });
 
-Route::get('/automovel', function () {
-    return view('5-automovel.automovel');
-});
+// ------------------------------------- Automóveis -------------------------------------
 
-Route::get('/criar-automovel', function () {
-    return view('5-automovel.create-automovel');
-});
+Route::get('/automovel', [AutomobileController::class, 'index']);
+Route::get('/criar-automovel', [AutomobileController::class, 'create']);
+Route::post('/automovel', [AutomobileController::class, 'store']);
+
+// ---------------------------------------------------------------------------------------
 
 Route::get('/user', function () {
     return view('6-user.user');

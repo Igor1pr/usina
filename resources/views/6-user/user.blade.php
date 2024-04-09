@@ -59,10 +59,11 @@
 <div class="container">
     <h1>Setor: DEINF</h1>
     <h1>Autorização: Admin</h1>
+    <h1>-----Lembrar de corrigir header-----</h1>
     <div class="user-info">
         <img src="../../.././img/user.jpg" alt="Foto do Usuário">
         <br>
-        <p>João</p>
+        <p>Teste</p>
         <p>teste123@gmail.com</p>
     </div>
     <div class="button-container">
