@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Solicitante')
+@section('title', 'Motoristas')
 @section('content')
 
 <div class="col-md-2 offset-md-1 dashboard-title-container" id="create-motorista-button">

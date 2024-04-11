@@ -26,15 +26,15 @@
                     </a>
                     <ul class="navbar-nav" id="navbar-main">
                         <li class="nav-item">
-                            <a href="/solicitante" class="nav-link">Solicitante</a>
+                            <a href="/solicitantes" class="nav-link">Solicitantes</a>
                         <li class="nav-item">
                             <a href="/materiais" class="nav-link">Materiais</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/motorista" class="nav-link">Motorista</a>
+                            <a href="/motoristas" class="nav-link">Motoristas</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/automovel" class="nav-link">Automóvel</a>
+                            <a href="/automoveis" class="nav-link">Automóveis</a>
                         </li>
                         <li class="nav-item">
                             <a href="/user" class="btn btn-info edit-btn text-white">Usuário</a>

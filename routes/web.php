@@ -1,47 +1,47 @@
 <?php
 
+use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\AutomobileController;
+use App\Http\Controllers\DriverController;
+use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\SupplieController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('1-home.home');
-});
+// ----------------------------------------- Home -----------------------------------------
 
-Route::get('/details', function () {
-    return view('1-home.details');
-});
+Route::get('/', [SupplieController::class, 'index']);
+Route::get('/details', [SupplieController::class, 'details']);
 
-Route::get('/solicitante', function () {
-    return view('2-solicitante.solicitante');
-});
 
-Route::get('/criar-solicitante', function () {
-    return view('2-solicitante.create-solicitante');
-});
+// ------------------------------------- Solicitantes -------------------------------------
 
-Route::get('/materiais', function () {
-    return view('3-materiais.materiais');
-});
+Route::get('/solicitantes', [ApplicantController::class, 'index']);
+Route::get('/criar-solicitante', [ApplicantController::class, 'create']);
+Route::post('/solicitantes', [ApplicantController::class, 'store']);
 
-Route::get('/criar-materiais', function () {
-    return view('3-materiais.create-materiais');
-});
 
-Route::get('/motorista', function () {
-    return view('4-motorista.motorista');
-});
+// -------------------------------------- Materiais ---------------------------------------
 
-Route::get('/criar-motorista', function () {
-    return view('4-motorista.create-motorista');
-});
+Route::get('/materiais', [MaterialController::class, 'index']);
+Route::get('/criar-material', [MaterialController::class, 'create']);
+Route::post('/materiais', [MaterialController::class, 'store']);
 
-// ------------------------------------- Automóveis -------------------------------------
 
-Route::get('/automovel', [AutomobileController::class, 'index']);
+// -------------------------------------- Motoristas --------------------------------------
+
+Route::get('/motoristas', [DriverController::class, 'index']);
+Route::get('/criar-motorista', [DriverController::class, 'create']);
+Route::post('/motoristas', [DriverController::class, 'store']);
+
+
+// -------------------------------------- Automóveis --------------------------------------
+
+Route::get('/automoveis', [AutomobileController::class, 'index']);
 Route::get('/criar-automovel', [AutomobileController::class, 'create']);
-Route::post('/automovel', [AutomobileController::class, 'store']);
+Route::post('/automoveis', [AutomobileController::class, 'store']);
 
-// ---------------------------------------------------------------------------------------
+
+// --------------------------------------- Usuário ----------------------------------------
 
 Route::get('/user', function () {
     return view('6-user.user');

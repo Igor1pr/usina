@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Automobile;
 
 class AutomobileController extends Controller
@@ -30,7 +29,6 @@ class AutomobileController extends Controller
 
         $automobile->save();
 
-        return redirect('/automovel');
-
+        return redirect('/automoveis');
     }
 }

@@ -65,7 +65,7 @@
 </script>
 
 <div class="col-md-10 offset-md-1 dashboard-events-container" id="automovel-form">
-    <form onsubmit="return validarPlaca()" action="/automovel" method="POST" enctype="multipart/form-data">
+    <form onsubmit="return validarPlaca()" action="/automoveis" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-collum">
             <div class="form-group col-md-4 mt-5">
