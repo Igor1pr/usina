@@ -16,9 +16,12 @@ return new class extends Migration
             $table->timestamps();
             $table->string('material');
             $table->string('medida_peso');
-            $table->decimal('peso', 10, 1);
-            $table->decimal('preco_unitario', 10, 2);
+            $table->double('peso', 10, 1);
+            $table->double('preco_unitario', 10, 2);
             $table->integer('qtd_estoque');
+
+            $table->unsignedBigInteger('type_measure_id');
+            $table->foreign('type_measure_id')->references('id')->on('aux_type_measures')->onUpdate('cascade');
         });
     }
 

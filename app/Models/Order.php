@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Driver extends Model
+class Order extends Model
 {
     use HasFactory;
 
-    public function type_identity() {
-        return $this->hasOne(aux_type_identities::class);
+    public function material_id() {
+        return $this->hasOne(Material::class);
     }
 
     protected $fillable = [
-        'name',
-        'identity',
-        'type_identities_id'
+        'unit_price',
+        'delivered_quantity',
+        'requested_quantity',
+        'material_id'
     ];
 
     protected $guarded = [];

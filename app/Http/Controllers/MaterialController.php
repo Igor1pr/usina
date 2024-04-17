@@ -27,6 +27,7 @@ class MaterialController extends Controller
         $material->peso = $request->peso;
         $material->preco_unitario = $request->preco_unitario;
         $material->qtd_estoque = $request->qtd_estoque;
+        $material->type_measure_id = $request->type_measure_id;
 
         $material->save();
 

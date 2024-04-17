@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('prefixo_setor')->nullable();
             $table->string('setor_externo')->nullable();
             $table->integer('quantidade_autorizada');
+
+            $table->unsignedBigInteger('type_applicants_id');
+            $table->foreign('type_applicants_id')->references('id')->on('aux_type_applicants')->onUpdate('cascade');
         });
     }
 

@@ -36,6 +36,7 @@ class ApplicantController extends Controller
         }
 
         $applicant->quantidade_autorizada = $request->quantidade_autorizada;
+        $applicant->type_applicants_id = $request->type_applicants_id;
 
         $applicant->save();
 

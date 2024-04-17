@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('drivers', function (Blueprint $table) {
+        Schema::create('order_supplie', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
-            $table->string('identity');
 
-            $table->unsignedBigInteger('type_identities_id');
-            $table->foreign('type_identities_id')->references('id')->on('aux_type_identities')->onUpdate('cascade');
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')->references('id')->on('orders')->onUpdate('cascade');
+
+            $table->unsignedBigInteger('supplie_id');
+            $table->foreign('supplie_id')->references('id')->on('supplies')->onUpdate('cascade');
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('drivers');
+        Schema::dropIfExists('order_supplie');
     }
 };
