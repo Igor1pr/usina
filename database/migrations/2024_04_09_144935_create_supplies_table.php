@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('origin_address');
             $table->string('delivery_address');
 
+            /*
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
+            */
 
             $table->unsignedBigInteger('driver_id');
             $table->foreign('driver_id')->references('id')->on('drivers')->onUpdate('cascade');

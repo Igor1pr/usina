@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nome_solicitante');
-            $table->string('tipo_setor');
             $table->string('setor_interno')->nullable();
             $table->string('prefixo_setor')->nullable();
             $table->string('setor_externo')->nullable();

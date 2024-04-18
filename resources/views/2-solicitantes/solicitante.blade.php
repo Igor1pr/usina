@@ -19,9 +19,15 @@
             @foreach ($applicants as $applicant)
                 <tr>
                     <td>{{ $applicant->nome_solicitante }}</td>
-                    <td class="text">{{ $applicant->tipo_setor }}</td>
                     <td class="text">
-                        @if($applicant->tipo_setor === 'Interno')
+                        @if ($applicant->type_applicants_id === 1)
+                            Interno
+                        @else
+                            Órgão Público
+                        @endif
+                    </td>
+                    <td class="text">
+                        @if($applicant->type_applicants_id === 1)
                             {{ $applicant->prefixo_setor }}
                         @else
                             {{ $applicant->setor_externo }}

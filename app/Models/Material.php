@@ -15,7 +15,6 @@ class Material extends Model
 
     protected $fillable = [
         'material',
-        'medida_peso',
         'peso',
         'preco_unitario',
         'qtd_estoque',

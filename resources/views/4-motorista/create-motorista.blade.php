@@ -3,25 +3,26 @@
 @section('content')
 
 <div class="col-md-10 offset-md-1 dashboard-events-container" id="motorista-form">
-    <form>
+    <form action="/motoristas" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="form-collum">
 
             <div class="form-group col-md-4 mt-5">
-                <input type="text" class="form-control" placeholder="Nome Completo">
+                <input type="text" name="name" class="form-control" placeholder="Nome Completo">
             </div>
 
             <div class="form-group col-md-4">
-                <select class="form-control">
+                <select class="form-control" name="type_identities_id">
                     <option selected disabled>Tipo de Identidade</option>
-                    <option>CPF</option>
-                    <option>RG</option>
-                    <option>CNH</option>
+                    @foreach ($typeIdentities as $typeIdentitie)
+                        <option value="{{ $typeIdentitie->id }}">{{ $typeIdentitie->description }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
         <div class="form-collum">
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" maxlength="14" placeholder="Identidade">
+                <input type="text" name="identity" class="form-control" maxlength="14" placeholder="Identidade">
             </div>
         </div>
 

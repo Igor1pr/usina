@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [SupplieController::class, 'index']);
 Route::get('/details', [SupplieController::class, 'details']);
+Route::get('/criar-solicitacao', [SupplieController::class, 'create']);
+Route::post('/', [SupplieController::class, 'store']);
 
 
 // ------------------------------------- Solicitantes -------------------------------------

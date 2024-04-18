@@ -13,9 +13,12 @@ class Applicant extends Model
         return $this->hasOne(aux_type_applicants::class);
     }
 
+    public function typeApplicant() {
+        return $this->belongsTo(aux_type_applicants::class, 'type_applicants_id');
+    }
+
     protected $fillable = [
         'nome_solicitante',
-        'tipo_setor',
         'setor_interno',
         'prefixo_setor',
         'setor_externo',

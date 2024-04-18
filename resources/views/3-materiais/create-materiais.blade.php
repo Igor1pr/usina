@@ -12,10 +12,11 @@
             </div>
 
             <div class="form-group col-md-2">
-                <select class="form-control" id="medidaPeso" name="medida_peso">
+                <select class="form-control" id="type_measure_id" name="type_measure_id">
                     <option selected disabled>Medida de Peso</option>
-                    <option value="Kg">Kg</option>
-                    <option value="Tonelada(s)">Tonelada(s)</option>
+                    @foreach ($typeMeasures as $typeMeasure)
+                        <option value="{{ $typeMeasure->id }}">{{ $typeMeasure->type_measure }}</option>
+                    @endforeach
                 </select>
             </div>
 

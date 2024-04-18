@@ -70,7 +70,7 @@ header {
 }
 
 #navbar a:hover {
-    color: #002c74;
+    color: #0852c9;
 }
 
 #navbar-main {
@@ -176,6 +176,7 @@ th {
 #add-solicitante-buttons,
 #add-materiais-buttons,
 #add-motorista-buttons,
+#add-solicitacao-buttons,
 #add-automovel-buttons {
     margin: 1rem;
     margin-top: 2rem;
@@ -185,6 +186,7 @@ th {
 #solicitante-form,
 #materiais-form,
 #motorista-form,
-#automovel-form {
+#automovel-form,
+#solicitacao-form {
     background-color: #efefef
 }

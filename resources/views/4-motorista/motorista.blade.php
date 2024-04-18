@@ -11,25 +11,24 @@
         <thead>
             <tr class="cabeçalho">
                 <th scope="col">Nome</th>
+                <th scope="col" class="td-tabela text-center">Tipo de Identidade</th>
                 <th scope="col" class="td-tabela text-center">Identidade</th>
             </tr>
         </thead>
         <tbody>
-
-            <tr>
-                <td>Marcos Freitas</td>
-                <td class="text">123.456.789-01</td>
-            </tr>
-
-            <tr>
-                <td>João Pedro</td>
-                <td class="text">4.567.891</td>
-            </tr>
-
-            <tr>
-                <td>Abílio José</td>
-                <td class="text">789.123.456-78</td>
-            </tr>
+            @foreach ($drivers as $driver)
+                <tr>
+                    <td>{{ $driver->name }}</td>
+                    <td class="text">
+                        @if ($driver->type_identities_id == 1)
+                            CPF
+                        @else
+                            Nº da CNH
+                        @endif
+                    </td>
+                    <td class="text">{{ $driver->identity }}</td>
+                </tr>
+            @endforeach
 
         </tbody>
     </table>

@@ -20,7 +20,14 @@
             @foreach ($materials as $material)
                 <tr>
                     <td>{{ $material->material }}</td>
-                    <td class="text">{{ $material->peso }} {{ $material->medida_peso }}</td>
+                    <td class="text">
+                        {{ $material->peso }}
+                        @if ($material->type_measure_id == 1)
+                            Kg
+                        @else
+                            Tonelada(s)
+                        @endif
+                    </td>
                     <td class="text">R$ {{ number_format($material->preco_unitario, 2, ',', '.') }}</td>
                     <td class="text">{{ $material->qtd_estoque }}</td>
                 </tr>

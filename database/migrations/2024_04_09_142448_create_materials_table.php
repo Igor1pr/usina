@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('material');
-            $table->string('medida_peso');
             $table->double('peso', 10, 1);
             $table->double('preco_unitario', 10, 2);
             $table->integer('qtd_estoque');

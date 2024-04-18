@@ -8,6 +8,7 @@
     $(document).ready(function () {
         // Esconde o elemento 'setorField' ao carregar a página
         $('#setorField').hide();
+        $('#dropdown-setor').hide();
 
         // Adiciona um listener para o evento de mudança no dropdown 'dropdown-tipo'
         $('#dropdown-tipo').change(function () {
@@ -18,11 +19,11 @@
             $('#dropdown-setor').hide();
             $('#setorField').hide();
 
-            // Mostra o elemento apropriado dependendo da seleção do usuário
-            if (selectedOption === 'Órgão Público') {
-                $('#setorField').show();
-            } else if (selectedOption === 'Interno') {
+            // Adiciona verificações usando os IDs dos tipos de solicitante
+            if (selectedOption == 1) { // ID para Interno
                 $('#dropdown-setor').show();
+            } else if (selectedOption == 2) { // ID para Órgão Público
+                $('#setorField').show();
             }
         });
     });
@@ -73,10 +74,11 @@
                 <input type="text" class="form-control" id="nome_solicitante" placeholder="Nome Completo" name="nome_solicitante">
             </div>
             <div class="form-group col-md-4">
-                <select class="form-control" id="dropdown-tipo" name="tipo_setor">
+                <select class="form-control" id="dropdown-tipo" name="type_applicants_id">
                     <option selected disabled>Tipo</option>
-                    <option value="Órgão Público">Órgão Público</option>
-                    <option value="Interno">Interno</option>
+                    @foreach ($typeApplicants as $typeApplicant)
+                        <option value="{{ $typeApplicant->id }}">{{ $typeApplicant->type_applicants }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group col-md-4">
