@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 // ----------------------------------------- Home -----------------------------------------
 
 Route::get('/', [SupplieController::class, 'index']);
-Route::get('/details', [SupplieController::class, 'details']);
+Route::get('/details/{id}', [SupplieController::class, 'show'])->name('solicitacao.details');
 Route::get('/criar-solicitacao', [SupplieController::class, 'create']);
 Route::post('/', [SupplieController::class, 'store']);
 

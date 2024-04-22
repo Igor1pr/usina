@@ -10,42 +10,28 @@
     <table class="table table-bordered" id="home-table">
         <thead>
             <tr class="cabeçalho">
-                <th scope="col">ID</th>
+                <th scope="col">Nº do SEI</th>
                 <th scope="col" class="td-status text-center">Status</th>
                 <th scope="col" class="td-action"></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1465654</td>
-                <td class="text-enviado">Enviado</td>
-                <td class="text-center">
-                    <a href="details" class="btn"><ion-icon name="eye-outline"></ion-icon></a>
-                </td>
-            </tr>
             @foreach ($supplies as $supplie)
                 <tr>
-                    <td>{{ $supplie->sei_number }}</td>
-                    <td class="text">Em espera</td>
-                    <td class="text-center">
-                        <a href="details" class="btn"><ion-icon name="eye-outline"></ion-icon></a>
+                    <td style="vertical-align: middle">{{ $supplie->sei_number }}</td>
+                    <td class="text" style="vertical-align: middle;
+                        @if ($supplie->status->description === 'Enviado')
+                            color: rgb(1, 173, 1);
+                        @elseif ($supplie->status->description === 'Processando')
+                            color: #003997;
+                        @endif
+                    ">
+                    {{ $supplie->status->description }}</td>
+                    <td class="text-center" style="vertical-align: middle">
+                        <a href="{{ route('solicitacao.details', $supplie->id) }}" class="btn"><ion-icon name="eye-outline"></ion-icon></a>
                     </td>
                 </tr>
             @endforeach
-            <tr>
-                <td>1278699</td>
-                <td class="text-processando">Processando</td>
-                <td class="text-center">
-                    <a href="details" class="btn"><ion-icon name="eye-outline"></ion-icon></a>
-                </td>
-            </tr>
-            <tr>
-                <td>1785687</td>
-                <td class="text">Em espera</td>
-                <td class="text-center">
-                    <a href="details" class="btn"><ion-icon name="eye-outline"></ion-icon></a>
-                </td>
-            </tr>
         </tbody>
     </table>
 </div>

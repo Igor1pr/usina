@@ -1,4 +1,4 @@
-/* Geral */
+/* --------------------------------- Geral --------------------------------- */
 * {
     font-family: 'Roboto';
     font-size: 18px;
@@ -51,7 +51,7 @@ header {
     padding: 10px;
 }
 
-/* Navbar */
+/* --------------------------------- Navbar --------------------------------- */
 
 #navbar img {
     width: 125px;
@@ -101,7 +101,7 @@ header {
     font-weight: 100;
 }
 
-/* Tabelas */
+/* --------------------------------- Tabelas --------------------------------- */
 
 .table {
     background-color: #efefef;
@@ -138,7 +138,11 @@ th {
     color: rgb(1, 173, 1);
 }
 
-.td-status,
+.td-status {
+    width: 150px;
+    text-align: right;
+}
+
 .td-action {
     width: 100px;
     text-align: right;
@@ -171,7 +175,7 @@ th {
     width: 100%;
 }
 
-/* Criar solicitante, materiais, motorista e automovel */
+/* ------------------------- Criar solicitante, materiais, motorista e automovel ------------------------- */
 
 #add-solicitante-buttons,
 #add-materiais-buttons,
@@ -189,4 +193,18 @@ th {
 #automovel-form,
 #solicitacao-form {
     background-color: #efefef
+}
+
+/* --------------------------------- Details --------------------------------- */
+
+.status-div {
+    border-radius: 6px;
+    align-items: center;
+}
+
+.status-h2 {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 5px;
+    color: white;
 }

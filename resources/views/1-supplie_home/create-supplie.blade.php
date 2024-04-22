@@ -35,6 +35,15 @@
             </div>
 
             <div class="form-group col-md-4">
+                <select class="form-control" id="material_id" name="material_id">
+                    <option selected disabled>Material</option>
+                    @foreach ($materials as $material)
+                        <option value="{{ $material->id }}">{{ $material->material }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group col-md-4">
                 <input type="number" class="form-control" id="sei_number" placeholder="Número SEI" name="sei_number">
             </div>
 
@@ -44,6 +53,7 @@
 
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" id="delivery_address" placeholder="Endereço de Entrega" name="delivery_address">
+                <input type="number" class="form-control" id="status_id" name="status_id" value="1" style="display: none;">
             </div>
 
         </div>

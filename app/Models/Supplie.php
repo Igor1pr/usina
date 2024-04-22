@@ -9,20 +9,24 @@ class Supplie extends Model
 {
     use HasFactory;
 
-    public function status_id() {
-        return $this->hasOne(Status::class);
+    public function material() {
+        return $this->belongsTo(Material::class);
     }
 
-    public function automobile_id() {
-        return $this->hasOne(Automobile::class);
+    public function status() {
+        return $this->belongsTo(Status::class);
     }
 
-    public function applicant_id() {
-        return $this->hasOne(Applicant::class);
+    public function automobile() {
+        return $this->belongsTo(Automobile::class);
     }
 
-    public function driver_id() {
-        return $this->hasOne(Driver::class);
+    public function applicant() {
+        return $this->belongsTo(Applicant::class);
+    }
+
+    public function driver() {
+        return $this->belongsTo(Driver::class);
     }
 
     protected $fillable = [
