@@ -13,10 +13,19 @@ class SupplieController extends Controller
 {
     public function index() {
 
-        $supplies = Supplie::all();
+        $search = request('search');
 
-        return view('1-supplie_home.home',
-        ['supplies' => $supplies]);
+        if ($search) {
+
+            $supplies = Supplie::where([
+                ['sei_number', 'like', '%'.$search.'%']
+            ])->get();
+
+        } else {
+            $supplies = Supplie::all();
+        }
+
+        return view('1-supplie_home.home', ['supplies' => $supplies, 'search' => $search]);
     }
 
     public function show($id)

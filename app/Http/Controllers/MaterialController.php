@@ -10,9 +10,19 @@ class MaterialController extends Controller
 {
     public function index() {
 
-        $materials = Material::all();
+        $search = request('search');
 
-        return view('3-materiais.materiais', ['materials' => $materials]);
+        if ($search) {
+
+            $materials = Material::where([
+                ['material', 'like', '%'.$search.'%']
+            ])->get();
+
+        } else {
+            $materials = Material::all();
+        }
+
+        return view('3-materiais.materiais', ['materials' => $materials, 'search' => $search]);
     }
 
     public function create() {

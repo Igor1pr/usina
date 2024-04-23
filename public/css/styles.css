@@ -51,26 +51,34 @@ header {
     padding: 10px;
 }
 
+.search-field {
+    margin-bottom: 28px;
+    width: 50%;
+}
+
 /* --------------------------------- Navbar --------------------------------- */
 
 #navbar img {
     width: 125px;
 }
 
+.header {
+    background-color: #eeeeee;
+}
+
 #navbar {
     justify-content: space-between;
-    background-color: #FFF;
     padding: 5px 0;
 
 }
 
 #navbar a {
-    font-size: 14px;
+    font-size: 16px;
     color: #4a4a4a;
 }
 
 #navbar a:hover {
-    color: #0852c9;
+    color: #0358e0;
 }
 
 #navbar-main {
@@ -207,4 +215,8 @@ th {
     padding-right: 14px;
     padding-top: 5px;
     color: white;
+}
+
+#details-card-body {
+    margin-bottom: 48px;
 }

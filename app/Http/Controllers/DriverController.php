@@ -10,9 +10,19 @@ class DriverController extends Controller
 {
     public function index() {
 
-        $drivers = Driver::all();
+        $search = request('search');
 
-        return view('4-motorista.motorista', ['drivers' => $drivers]);
+        if ($search) {
+
+            $drivers = Driver::where([
+                ['name', 'like', '%'.$search.'%']
+            ])->get();
+
+        } else {
+            $drivers = Driver::all();
+        }
+
+        return view('4-motorista.motorista', ['drivers' => $drivers, 'search' => $search]);
     }
 
     public function create() {

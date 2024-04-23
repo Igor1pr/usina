@@ -69,7 +69,10 @@
     <div class="button-container">
         <a href="" class="btn">Editar Perfil</a>
         <a href="" class="btn">Alterar Senha</a>
-        <a href="" class="btn">Sair</a>
+        <form action="/logout" method="POST">
+            @csrf
+            <a href="/logout" class="btn" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
+        </form>
     </div>
 </div>
 

@@ -9,9 +9,19 @@ class AutomobileController extends Controller
 {
     public function index() {
 
-        $automobiles = Automobile::all();
+        $search = request('search');
 
-        return view('5-automovel.automovel', ['automobiles' => $automobiles]);
+        if ($search) {
+
+            $automobiles = Automobile::where([
+                ['placa', 'like', '%'.$search.'%']
+            ])->get();
+
+        } else {
+            $automobiles = Automobile::all();
+        }
+
+        return view('5-automovel.automovel', ['automobiles' => $automobiles, 'search' => $search]);
     }
 
     public function create() {

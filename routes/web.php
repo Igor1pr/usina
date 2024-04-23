@@ -48,3 +48,13 @@ Route::post('/automoveis', [AutomobileController::class, 'store']);
 Route::get('/user', function () {
     return view('6-user.user');
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

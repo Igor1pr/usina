@@ -10,9 +10,19 @@ class ApplicantController extends Controller
 {
     public function index() {
 
-        $applicants = Applicant::all();
+        $search = request('search');
 
-        return view('2-solicitantes.solicitante', ['applicants' => $applicants]);
+        if ($search) {
+
+            $applicants = Applicant::where([
+                ['nome_solicitante', 'like', '%'.$search.'%']
+            ])->get();
+
+        } else {
+            $applicants = Applicant::all();
+        }
+
+        return view('2-solicitantes.solicitante', ['applicants' => $applicants, 'search' => $search]);
     }
 
     public function create() {

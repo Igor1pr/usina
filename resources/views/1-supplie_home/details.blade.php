@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'detalhes')
+@section('title', 'Detalhes')
 @section('content')
 
 <div class="col-md-10 offset-md-1 dashboard-title-container" id="details-table-title">

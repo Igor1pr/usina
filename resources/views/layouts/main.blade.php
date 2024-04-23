@@ -22,9 +22,26 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="/" class="navbar-brand">
-                        <img src="/img/logonovacap.png" alt="NovaCap">
+                        <img src="/img/laravellogo.png" alt="NovaCap">
                     </a>
                     <ul class="navbar-nav" id="navbar-main">
+                    @guest
+                        <li class="nav-item">
+                            <a href="/solicitantes" class="nav-link">Solicitantes</a>
+                        <li class="nav-item">
+                            <a href="/materiais" class="nav-link">Materiais</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/motoristas" class="nav-link">Motoristas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/automoveis" class="nav-link">Automóveis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/login" class="nav-link">Login</a>
+                        </li>
+                    @endguest
+                    @auth
                         <li class="nav-item">
                             <a href="/solicitantes" class="nav-link">Solicitantes</a>
                         <li class="nav-item">
@@ -39,6 +56,7 @@
                         <li class="nav-item">
                             <a href="/user" class="btn btn-info edit-btn text-white">Usuário</a>
                         </li>
+                    @endauth
                     </ul>
                 </div>
             </nav>
