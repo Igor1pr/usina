@@ -65,6 +65,14 @@ class SupplieController extends Controller
 
         $supplie->save();
 
-        return redirect('/');
+        return redirect('/')->with('msg', 'Solicitação criada com sucesso!');
+    }
+
+    public function destroy($id) {
+
+        Supplie::findOrFail($id)->delete();
+
+        return redirect('/')->with('msg', 'Solicitação excluída com sucesso!');
+
     }
 }

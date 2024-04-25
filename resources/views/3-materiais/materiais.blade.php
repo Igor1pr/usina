@@ -2,11 +2,13 @@
 @section('title', 'Materiais')
 @section('content')
 
-<div class="col-md-2 offset-md-1 dashboard-title-container" id="create-materiais-button">
-    <h2 style="margin-bottom: 32px">Materiais</h2>
-    <a href="/criar-material" class="col-md-5 btn btn-info edit-btn">Criar<ion-icon name="add" style="vertical-align: middle; margin-left: .2rem"></ion-icon></a>
+<div class="col-md-10 offset-md-1 dashboard-title-container" id="create-materiais-button">
+    <h2 style="margin-bottom: 12px">Materiais</h2>
+    <hr>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-events-container">
+
+    <a href="/criar-material" class="col-md-1 btn btn-info edit-btn" style="margin-bottom: 24px;">Criar<ion-icon name="add" style="vertical-align: middle; margin-left: .2rem"></ion-icon></a>
 
     @if ($materials->isEmpty() && $search)
         <p>O material {{ $search }} não foi encontrado. <a href="/materiais">Mostrar todos</a></p>
@@ -32,6 +34,7 @@
                     <th scope="col" class="td-tabela text-center" style="vertical-align: middle;">Peso</th>
                     <th scope="col" class="td-tabela text-center" style="vertical-align: middle;">Preço Unitário</th>
                     <th scope="col" class="td-tabela text-center">Quantidade em estoque</th>
+                    <th scope="col" class="td-delete"></th>
                 </tr>
             </thead>
 
@@ -49,6 +52,13 @@
                         </td>
                         <td class="text">R$ {{ number_format($material->preco_unitario, 2, ',', '.') }}</td>
                         <td class="text">{{ $material->qtd_estoque }}</td>
+                        <td>
+                            <form action="/materiais/{{ $material->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn-delete"><ion-icon name="trash-outline" style="color: red;"></ion-icon></button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Applicant;
 use App\Models\aux_type_applicants;
+use Illuminate\Database\QueryException;
 
 class ApplicantController extends Controller
 {
@@ -52,7 +53,21 @@ class ApplicantController extends Controller
 
         $applicant->save();
 
-        return redirect('/solicitantes');
+        return redirect('/solicitantes')->with('msg', 'Solicitante cadastrado com sucesso!');
+
+    }
+
+    public function destroy($id) {
+
+        try {
+            $applicant = Applicant::findOrFail($id);
+            $applicant->delete();
+            return redirect('/solicitantes')->with('msg', 'Solicitante excluído com sucesso!');
+
+        } catch (QueryException) {
+
+            return redirect('/solicitantes')->with('error', 'Não é possível excluir este solicitante pois existem solicitações associadas a ele.');
+        }
 
     }
 }

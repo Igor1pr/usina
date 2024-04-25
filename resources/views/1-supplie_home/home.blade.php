@@ -2,12 +2,15 @@
 @section('title', 'Home')
 @section('content')
 
-<div class="col-md-2 offset-md-1 dashboard-title-container" id="create-button">
-    <h2 style="margin-bottom: 32px">Solicitações</h2>
-    <a href="/criar-solicitacao" class="col-md-5 btn btn-info edit-btn">Criar<ion-icon name="add" style="vertical-align: middle;" id="add-icon"></ion-icon></a>
+<div class="col-md-10 offset-md-1 dashboard-title-container" id="create-button">
+    <h2 style="margin-bottom: 12px">Solicitações</h2>
+    <hr>
 </div>
 
 <div class="col-md-10 offset-md-1 dashboard-events-container">
+
+    <a href="/criar-solicitacao" class="col-md-1 btn btn-info" style="margin-bottom: 24px;">Criar<ion-icon name="add" style="vertical-align: middle;" id="add-icon"></ion-icon></a>
+
     @if ($supplies->isEmpty() && $search)
         <p>Não foi encontrada nenhuma solicitação com {{ $search }}. <a href="/">Mostrar todas</a></p>
     @elseif ($supplies->isEmpty())
@@ -46,7 +49,7 @@
                         ">
                         {{ $supplie->status->description }}</td>
                         <td class="text-center" style="vertical-align: middle">
-                            <a href="{{ route('solicitacao.details', $supplie->id) }}" class="btn"><ion-icon name="eye-outline"></ion-icon></a>
+                            <a href="{{ route('solicitacao.details', $supplie->id) }}" class="more-btn"><ion-icon class="details-btn" name="eye-outline"></ion-icon></a>
                         </td>
                     </tr>
                 @endforeach

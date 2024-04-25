@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\aux_type_measures;
 use App\Models\Material;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class MaterialController extends Controller
@@ -44,6 +45,20 @@ class MaterialController extends Controller
 
         $material->save();
 
-        return redirect('/materiais');
+        return redirect('/materiais')->with('msg', 'Material adicionado com sucesso!');
+    }
+
+    public function destroy($id) {
+
+        try {
+            $material = Material::findOrFail($id);
+            $material->delete();
+            return redirect('/materiais')->with('msg', 'Material excluído com sucesso!');
+
+        } catch (QueryException) {
+
+            return redirect('/materiais')->with('error', 'Não é possível excluir este material pois existem solicitações associadas a ele.');
+        }
+
     }
 }

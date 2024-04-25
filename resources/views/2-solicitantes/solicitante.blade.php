@@ -2,11 +2,14 @@
 @section('title', 'Solicitantes')
 @section('content')
 
-<div class="col-md-2 offset-md-1 dashboard-title-container" id="create-solicitante-button">
-    <h2 style="margin-bottom: 32px">Solicitantes</h2>
-    <a href="/criar-solicitante" class="col-md-5 btn btn-info edit-btn">Criar<ion-icon name="add" style="vertical-align: middle; margin-left: .2rem"></ion-icon></a>
+<div class="col-md-10 offset-md-1 dashboard-title-container" id="create-solicitante-button">
+    <h2 style="margin-bottom: 12px">Solicitantes</h2>
+    <hr>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-events-container">
+
+    <a href="/criar-solicitante" class="col-md-1 btn btn-info edit-btn" style="margin-bottom: 24px;">Criar<ion-icon name="add" style="vertical-align: middle; margin-left: .2rem"></ion-icon></a>
+
     @if ($applicants->isEmpty() && $search)
         <p>Não foi encontrado nenhum solicitante de nome {{ $search }}. <a href="/solicitantes">Mostrar todos</a></p>
     @elseif ($applicants->isEmpty())
@@ -31,6 +34,7 @@
                     <th scope="col" class="td-tabela text-center" style="vertical-align: middle;">Tipo</th>
                     <th scope="col" class="td-tabela text-center" style="vertical-align: middle;">Setor</th>
                     <th scope="col" class="td-tabela text-center">Quantidade autorizada</th>
+                    <th scope="col" class="td-delete"></th>
                 </tr>
             </thead>
             <tbody>
@@ -52,6 +56,13 @@
                             @endif
                         </td>
                         <td class="text">{{ $applicant->quantidade_autorizada }}</td>
+                        <td>
+                            <form action="/solicitantes/{{ $applicant->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn-delete"><ion-icon name="trash-outline" style="color: red;"></ion-icon></button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

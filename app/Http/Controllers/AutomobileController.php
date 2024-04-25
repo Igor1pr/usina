@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Automobile;
+use Illuminate\Database\QueryException;
 
 class AutomobileController extends Controller
 {
@@ -39,6 +40,20 @@ class AutomobileController extends Controller
 
         $automobile->save();
 
-        return redirect('/automoveis');
+        return redirect('/automoveis')->with('msg', 'Automóvel cadastrado com sucesso!');
+    }
+
+    public function destroy($id) {
+
+        try {
+            $automobile = Automobile::findOrFail($id);
+            $automobile->delete();
+            return redirect('/automoveis')->with('msg', 'Automóvel excluído com sucesso!');
+
+        } catch (QueryException) {
+
+            return redirect('/automoveis')->with('error', 'Não é possível excluir este automóvel pois existem solicitações associadas a ele.');
+        }
+
     }
 }

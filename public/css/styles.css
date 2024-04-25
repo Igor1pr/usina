@@ -11,6 +11,11 @@ body {
     margin: 0;
 }
 
+hr {
+    border-top: 2px solid black;
+    width: 100%;
+}
+
 .content {
     flex: 1;
 }
@@ -41,14 +46,48 @@ header {
     border-color: #002c74;
 }
 
+.btn-secondary {
+    border: 2px solid #3d3d3d;
+}
+
 .msg {
     background-color: #D4EDDA;
     color: #155724;
     border: 1px solid #C3E6CB;
     width: 100%;
-    margin-bottom: 0;
+    margin-bottom: 24px;
     text-align: center;
     padding: 10px;
+    /* Define a transição de opacidade */
+    transition: opacity 0.5s ease;
+    /* Defina a opacidade inicial como 1 */
+    opacity: 1;
+}
+
+/* CSS para a mensagem de flash quando estiver desaparecendo */
+.msg.fade-out {
+    /* Define a opacidade como 0 durante a transição */
+    opacity: 0;
+}
+
+.error {
+    background-color: #ecedd4;
+    color: #545715;
+    border: 1px solid #e5e6c3;
+    width: 100%;
+    margin-bottom: 24px;
+    text-align: center;
+    padding: 10px;
+    /* Define a transição de opacidade */
+    transition: opacity 0.5s ease;
+    /* Defina a opacidade inicial como 1 */
+    opacity: 1;
+}
+
+/* CSS para a mensagem de flash quando estiver desaparecendo */
+.error.fade-out {
+    /* Define a opacidade como 0 durante a transição */
+    opacity: 0;
 }
 
 .search-field {
@@ -63,29 +102,30 @@ header {
 }
 
 .header {
-    background-color: #eeeeee;
+    background-color: #0954aa;
 }
 
 #navbar {
     justify-content: space-between;
     padding: 5px 0;
-
 }
 
 #navbar a {
     font-size: 16px;
-    color: #4a4a4a;
+    color: white;
 }
 
 #navbar a:hover {
-    color: #0358e0;
+    color: #0ba7c6;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
 }
 
 #navbar-main {
     gap: 1.5rem;
 }
 
-/* Footer */
+/* --------------------------------- Footer --------------------------------- */
 
 #footer {
     width: 100%;
@@ -154,14 +194,15 @@ th {
 .td-action {
     width: 100px;
     text-align: right;
-}
-
-.td-action {
     justify-content: center;
 }
 
 .td-tabela {
     width: 200px;
+}
+
+.td-delete {
+    width: 28px;
 }
 
 #details-table {
@@ -174,16 +215,26 @@ th {
     margin-bottom: 1rem;
 }
 
-#edit-button {
-    margin-left: 1rem;
-}
-
 #details-card-body {
     background-color: #e7e7e7;
     width: 100%;
 }
 
-/* ------------------------- Criar solicitante, materiais, motorista e automovel ------------------------- */
+.details-btn {
+    font-size: 22px;
+}
+
+.more-btn {
+    font-size: 24px;
+    color: #000000;
+}
+
+.btn-delete {
+    height: 10px;
+    border: none;
+}
+
+/* ---------------- Criar solicitação, solicitante, materiais, motorista e automovel ---------------- */
 
 #add-solicitante-buttons,
 #add-materiais-buttons,
@@ -219,4 +270,22 @@ th {
 
 #details-card-body {
     margin-bottom: 48px;
+}
+
+#edit-button,
+#back-button,
+#delete-button {
+    margin-left: 0.5rem;
+    height: fit-content;
+}
+
+#delete-button {
+    color: white;
+    background-color: #c00000;
+    border: 2px solid #740000;
+}
+
+#delete-button:hover {
+    background-color: #940000;
+    border: 2px solid #5a0000;
 }

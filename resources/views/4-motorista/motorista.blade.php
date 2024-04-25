@@ -2,12 +2,14 @@
 @section('title', 'Motoristas')
 @section('content')
 
-<div class="col-md-2 offset-md-1 dashboard-title-container" id="create-motorista-button">
-    <h2 style="margin-bottom: 32px">Motoristas</h2>
-    <a href="/criar-motorista" class="col-md-5 btn btn-info edit-btn">Criar<ion-icon name="add" style="vertical-align: middle; margin-left: .2rem"></ion-icon></a>
+<div class="col-md-10 offset-md-1 dashboard-title-container" id="create-motorista-button">
+    <h2 style="margin-bottom: 12px">Motoristas</h2>
+    <hr>
 </div>
 
 <div class="col-md-10 offset-md-1 dashboard-events-container">
+
+    <a href="/criar-motorista" class="col-md-1 btn btn-info edit-btn" style="margin-bottom: 24px;">Criar<ion-icon name="add" style="vertical-align: middle; margin-left: .2rem"></ion-icon></a>
 
     @if ($drivers->isEmpty() && $search)
         <p>Não foi encontrado nenhum motorista de nome {{ $search }}. <a href="/motoristas">Mostrar todos</a></p>
@@ -32,6 +34,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col" class="td-tabela text-center">Tipo de Identidade</th>
                     <th scope="col" class="td-tabela text-center">Identidade</th>
+                    <th scope="col" class="td-delete"></th>
                 </tr>
             </thead>
             <tbody>
@@ -46,6 +49,13 @@
                             @endif
                         </td>
                         <td class="text">{{ $driver->identity }}</td>
+                        <td>
+                            <form action="/motoristas/{{ $driver->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn-delete"><ion-icon name="trash-outline" style="color: red;"></ion-icon></button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
 
