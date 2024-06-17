@@ -44,7 +44,7 @@
     <header class="header">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="collapse navbar-collapse" id="navbar">
-                <a href="/" class="navbar-brand">
+                <a href="/solicitacoes" class="navbar-brand">
                     <img src="/img/logonovacap.png" alt="NovaCap"
                         style="filter: invert(100%) brightness(180%) saturate(20%);">
                 </a>

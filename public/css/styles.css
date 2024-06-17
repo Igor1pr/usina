@@ -254,6 +254,30 @@ th {
     background-color: #efefef
 }
 
+/* -------------------------------- Editar solicitação -------------------------------- */
+
+#edit-blade-title {
+    margin-top: 24px;
+    padding-top: 12px;
+    padding-left: 14px;
+    padding-right: 14px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.8rem;
+}
+
+.edit-div-title {
+    border-radius: 6px;
+    align-items: center;
+    background-color: #0954aa;
+    display: flex;
+    height: 52px;
+    width: 372px;
+    margin-top: 24px;
+    margin-left: 12px;
+}
+
 /* --------------------------------- Details --------------------------------- */
 
 .status-div {

@@ -9,16 +9,16 @@
 
 <div class="col-md-10 offset-md-1 dashboard-events-container">
 
-    <a href="/criar-solicitacao" class="col-md-1 btn btn-info" style="margin-bottom: 24px;">Criar<ion-icon name="add" style="vertical-align: middle;" id="add-icon"></ion-icon></a>
+    <a href="/solicitacoes/criar-solicitacao" class="col-md-1 btn btn-info" style="margin-bottom: 24px;">Criar<ion-icon name="add" style="vertical-align: middle;" id="add-icon"></ion-icon></a>
 
     @if ($supplies->isEmpty() && $search)
-        <p>Não foi encontrada nenhuma solicitação com {{ $search }}. <a href="/">Mostrar todas</a></p>
+        <p>Não foi encontrada nenhuma solicitação com {{ $search }}. <a href="/solicitacoes">Mostrar todas</a></p>
     @elseif ($supplies->isEmpty())
         <p>Não há nenhuma solicitação no momento. Clique no botão acima para criar uma solicitação.</p>
     @else
 
         <div class="offset search-container">
-            <form action="/" method="GET" class="search-field">
+            <form action="/solicitacoes" method="GET" class="search-field">
                 <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Nº SEI">
             </form>
         </div>

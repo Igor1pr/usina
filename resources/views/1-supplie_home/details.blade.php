@@ -32,8 +32,8 @@
         <br>
         <div class="form-group" style="display: flex;">
             <button type="button" class="btn btn-secondary" id="back-button" onclick="window.history.back();">Voltar</button>
-            <a href="#" class="btn btn-primary" id="edit-button">Editar</a>
-            <form action="/details/{{ $supplie->id }}" method="POST">
+            <a href="{{ route('solicitacao.edit', $supplie->id) }}" class="btn btn-primary" id="edit-button">Editar</a>
+            <form action="/solicitacoes/details/{{ $supplie->id }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger" id="delete-button">Excluir</button>

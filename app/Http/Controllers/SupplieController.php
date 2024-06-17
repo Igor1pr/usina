@@ -65,14 +65,31 @@ class SupplieController extends Controller
 
         $supplie->save();
 
-        return redirect('/')->with('msg', 'Solicitação criada com sucesso!');
+        return redirect('/solicitacoes')->with('msg', 'Solicitação criada com sucesso!');
     }
 
     public function destroy($id) {
 
         Supplie::findOrFail($id)->delete();
 
-        return redirect('/')->with('msg', 'Solicitação excluída com sucesso!');
+        return redirect('/solicitacoes')->with('msg', 'Solicitação excluída com sucesso!');
+    }
 
+    public function edit($id) {
+
+        $supplie = Supplie::findOrFail($id);
+        $drivers = Driver::all();
+        $automobiles = Automobile::all();
+        $applicants = Applicant::all();
+        $materials = Material::all();
+
+        return view('1-supplie_home.edit-supplie', ['supplie' => $supplie, 'drivers' => $drivers, 'automobiles' => $automobiles, 'applicants' => $applicants, 'materials' => $materials]);
+    }
+
+    public function update(Request $request) {
+
+        Supplie::findOrFail($request->id)->update($request->all());
+
+        return redirect('/solicitacoes')->with('msg', 'Solicitação editada com sucesso!');
     }
 }
